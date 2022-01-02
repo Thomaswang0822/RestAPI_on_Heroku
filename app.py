@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -9,7 +11,17 @@ from db import db
 from resources.store import Store, StoreList
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+# Set postgresql as Heroku database. 
+env = os.environ.get('DATABASE_URL')
+if env:
+    # "postgres ..." should become "postgresql ..."
+    assert env[:8] == "postgres"
+    env = env[:8] + 'ql' + env[8:]
+else:
+    # keep option of running locally
+    env = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = env
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "ThomasWang"
 api = Api(app)
