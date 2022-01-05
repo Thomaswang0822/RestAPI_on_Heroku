@@ -22,7 +22,12 @@ class ItemModel(db.Model):
         self.store_id = store_id
     
     def json(self):
-        return {'name': self.name, 'price': self.price}
+        return {
+            'id': self.id, 
+            'name': self.name, 
+            'price': self.price, 
+            'store_id': self.store_id
+        }
 
 
     def delete_from_db(self):
@@ -65,4 +70,8 @@ class ItemModel(db.Model):
 
         # similar to "SELECT * FROM items WHERE name=name LIMIT 1"
         return ItemModel.query.filter_by(name=name).first()
+
+    @classmethod
+    def find_all(cls):
+        return cls.query.all()
     

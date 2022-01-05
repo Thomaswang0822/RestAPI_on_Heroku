@@ -95,4 +95,4 @@ class ItemList(Resource):
         
         # sql-alchemy easy version
         # ItemModel.query.all() <==> SELECT * FROM items
-        return {"items": [item.json() for item in ItemModel.query.all() ] }
+        return {"items": [item.json() for item in ItemModel.find_all() ] }

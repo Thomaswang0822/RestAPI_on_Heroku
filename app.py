@@ -23,6 +23,8 @@ else:
 app.config['SQLALCHEMY_DATABASE_URI'] = env
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# allow exceptions (by JWT) return their own meaningful error log
+app.config['PROPAGATE_EXCEPTIONS'] = True
 app.secret_key = "ThomasWang"
 api = Api(app)
 

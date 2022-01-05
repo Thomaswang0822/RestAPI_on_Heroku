@@ -16,7 +16,11 @@ class StoreModel(db.Model):
     
     def json(self):
         # Because of lazy='dynamic', self.items is now a query, not an actual list
-        return {'name': self.name, 'items': [item.json() for item in self.items.all()]}
+        return {
+            'id': self.id,
+            'name': self.name, 
+            'items': [item.json() for item in self.items.all()]
+        }
 
     def delete_from_db(self):
         db.session.delete(self)
@@ -38,3 +42,6 @@ class StoreModel(db.Model):
         # similar to "SELECT * FROM items WHERE name=name LIMIT 1"
         return StoreModel.query.filter_by(name=name).first()
     
+    @classmethod
+    def find_all(cls):
+        return cls.query.all()
