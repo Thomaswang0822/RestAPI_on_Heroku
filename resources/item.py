@@ -1,6 +1,6 @@
 import sqlite3
 from flask_restful import Resource, reqparse
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required, get_jwt, get_jwt_identity
 from modules.item import ItemModel
 
 
@@ -46,6 +46,7 @@ class Item(Resource):
         return item.json(), 201 # 201 is status code for created
  
 
+    @jwt_required()
     def delete(self, name):
         """connection = sqlite3.connect("data.db")
         cursor = connection.cursor()
@@ -56,12 +57,17 @@ class Item(Resource):
 
         return {"message": f"Item {name} deleted"} """
 
+        # make use of jwt_claims
+        claims = get_jwt()
+        if not claims['is_admin']:
+            return {"message": "Only admin can delete."}, 401
+
         # sql-alchemy easy version
         item = ItemModel.find_by_name(name)
         if item:
             item.delete_from_db()
-        
-        return {"message": f"Item {name} deleted"}
+            return {"message": f"Item {name} deleted"}
+        return {"message": "Item not found"}, 404
 
     def put(self, name):
         data = Item.parser.parse_args()
@@ -80,6 +86,7 @@ class Item(Resource):
   
 
 class ItemList(Resource):
+    @jwt_required(optional=True)
     def get(self):
         """connection = sqlite3.connect("data.db")
         cursor = connection.cursor()
@@ -95,4 +102,13 @@ class ItemList(Resource):
         
         # sql-alchemy easy version
         # ItemModel.query.all() <==> SELECT * FROM items
-        return {"items": [item.json() for item in ItemModel.find_all() ] }
+
+        # with optional jwt-token
+        user_id = get_jwt_identity()
+        items = [item.json() for item in ItemModel.find_all() ]
+        if user_id:
+            return {"items": items}, 200
+        return {
+            "items": [x['name'] for x in items], # hide id, price, store_id
+            "message": "Login to display item_id, price, and store_id"
+        }, 200
