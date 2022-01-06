@@ -6,7 +6,7 @@ from flask_jwt import JWT
 from flask_jwt_extended import JWTManager
 
 # from security import authenticate, identity
-from resources.user import UserRegister, User, UserLogin
+from resources.user import UserRegister, User, UserLogin, TokenRefresh
 from resources.item import Item, ItemList
 from db import db
 from resources.store import Store, StoreList
@@ -46,6 +46,8 @@ def add_claims_to_jwt(identity):
     else:
         return {'is_admin': False}
 
+# start jwt_extended config
+
 api.add_resource(Store, '/store/<string:name>')
 api.add_resource(StoreList, '/stores')
 api.add_resource(Item, '/item/<string:name>')
@@ -53,6 +55,7 @@ api.add_resource(ItemList, '/items')
 api.add_resource(UserRegister, '/register')
 api.add_resource(User, '/user/<int:user_id>') # since it's a INTEGER primary key
 api.add_resource(UserLogin, '/login')
+api.add_resource(TokenRefresh, '/refresh')
 
 db.init_app(app)
 
