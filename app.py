@@ -47,6 +47,43 @@ def add_claims_to_jwt(identity):
         return {'is_admin': False}
 
 # start jwt_extended config
+@jwt.expired_token_loader
+def expired_token_callback():
+    return jsonify({
+        "description": "Token has expired",
+        "error": "token_expired"
+    }), 401
+
+@jwt.invalid_token_loader
+def invalid_token_callback(error):
+    return jsonify({
+        "description": "Token invalid: isn't JWT",
+        "error": "invalid_token"
+    }), 401
+
+@jwt.unauthorized_loader
+def missing_token_callback(error):
+    return jsonify({
+        "description": "Request missing access_token",
+        "error": "token_required"
+    }), 401
+
+@jwt.needs_refresh_token_loader
+def token_not_fresh_callback():
+    return jsonify({
+        "description": "Token is not fresh",
+        "error": "fresh_token_required"
+    }), 401
+
+@jwt.revoked_token_loader
+# didn't refresh token but that token should no longer be considered fresh
+# e.g. logout within 5 min (before next token refresh takes place)
+def revoked_token_callback():
+    return jsonify({
+        "description": "Token has been revoked",
+        "error": "fresh_revoked"
+    }), 401
+
 
 api.add_resource(Store, '/store/<string:name>')
 api.add_resource(StoreList, '/stores')
