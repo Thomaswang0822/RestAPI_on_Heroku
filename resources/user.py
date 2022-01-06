@@ -6,8 +6,10 @@ from flask_jwt_extended import (
     jwt_required,
     create_access_token, 
     create_refresh_token, 
-    get_jwt_identity
+    get_jwt_identity,
+    get_jwt
 )
+from blacklist import BLACKLIST
 
 class UserRegister(Resource):
     parser = reqparse.RequestParser()
@@ -98,6 +100,21 @@ class UserLogin(Resource):
             }, 200
 
         return {"message": "Invalid credentials."}, 401
+
+
+class UserLogout(Resource):
+    @jwt_required()
+    # perform a logout
+    def post(self):
+        # We want to blacklist current token: cannot access now,
+        # but not to blacklist user_id: cannot access FOREVER
+        jti = get_jwt()['jti']  # jti is JWT_ID
+        sub = get_jwt()['sub']
+        print(sub)
+        BLACKLIST.add(jti)
+        return {"message": f"Successfully logged out user with id {sub}"}
+
+
 
 class TokenRefresh(Resource):
     @jwt_required(refresh=True)
