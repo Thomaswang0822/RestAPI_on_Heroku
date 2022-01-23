@@ -1,7 +1,4 @@
 # Supermarket Warehouse Online Database with REST Api
- 
-create stores, put items into different stores, and modify items.  
-It is built with Flask, Flask-RESTful, Flask-JWT, Flask-SQLAlchemy, and deployed to Heroku at [Warehouse App](https://warehouse-rest-api0822.herokuapp.com/)  
 
 <div id="top"></div>
 
