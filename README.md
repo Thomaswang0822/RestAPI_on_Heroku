@@ -1,52 +1,23 @@
 # Supermarket Warehouse Online Database with REST Api
-
-This is a warehouse logbook designed for users (business owners) to manage the storage information of their business.   
+ 
 create stores, put items into different stores, and modify items.  
 It is built with Flask, Flask-RESTful, Flask-JWT, Flask-SQLAlchemy, and deployed to Heroku at [Warehouse App](https://warehouse-rest-api0822.herokuapp.com/)  
 
 <div id="top"></div>
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This is a warehouse logbook designed for users (business owners) to manage the storage information of their business. 
 
-### Built With
-
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+### Built With Python
+And the following libraries:
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/)
+* [Flask-JWT](https://pythonhosted.org/Flask-JWT/)
+* [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
+* [uwsgi](https://uwsgi-docs.readthedocs.io/en/latest/)
+* [psycopg2](https://pypi.org/project/psycopg2/)
+* [werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -85,9 +56,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Haoxuan Wang - thomaswang0822@outlook.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/Thomaswang0822/RestAPI_on_Heroku](https://github.com/Thomaswang0822/RestAPI_on_Heroku)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
