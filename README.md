@@ -16,7 +16,6 @@ And the following libraries:
 * [psycopg2](https://pypi.org/project/psycopg2/)
 * [werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -24,7 +23,6 @@ And the following libraries:
 ## Usage
 The app is deployed to Heroku at [Warehouse App](https://warehouse-rest-api0822.herokuapp.com/) 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -39,15 +37,6 @@ The app is deployed to Heroku at [Warehouse App](https://warehouse-rest-api0822.
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- CONTACT -->
