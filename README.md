@@ -23,6 +23,8 @@ And the following libraries:
 ## Usage
 The app is deployed to Heroku at [Warehouse App](https://warehouse-rest-api0822.herokuapp.com/) 
 
+We recommend downloading [Postman](https://www.postman.com/downloads/) to send request to the server.
+
 
 
 
