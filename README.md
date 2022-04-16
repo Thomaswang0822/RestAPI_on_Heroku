@@ -35,6 +35,8 @@ The app is deployed to Heroku at [Warehouse App](https://warehouse-rest-api0822.
 - [x] Store Feature: We can get a list of all stores (GET), get a particular store with its name (GET), create a new store (POST), remove a store (DEL)
     
 
+![Postman Screenshot](postman.png?raw=true "Title")
+
 See the [open issues](https://github.com/Thomaswang0822/RestAPI_on_Heroku/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
