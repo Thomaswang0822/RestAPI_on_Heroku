@@ -29,12 +29,13 @@ The app is deployed to Heroku at [Warehouse App](https://warehouse-rest-api0822.
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [x] User & Login Feature: Users can register, stay logged in, log out, and refresh the token. (All POST reqeust)
+    - [x] Administrator Feature: Admin can get info of any user (GET) and remove any user (DEL)
+- [x] Item Feature: We can get a list of all items (GET), get info about a particular item (GET), post new item (POST), update item info (PUT), and delete an item (DEL).
+- [x] Store Feature: We can get a list of all stores (GET), get a particular store with its name (GET), create a new store (POST), remove a store (DEL)
+    
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/Thomaswang0822/RestAPI_on_Heroku/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
